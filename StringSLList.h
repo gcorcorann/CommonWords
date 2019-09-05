@@ -7,10 +7,11 @@
  */
 #ifndef STRINGSLLIST_H_
 #define STRINGSSLIST_H_
+#include <iostream>
 #include "StringSLListNode.h"
 
 
-class StringSLList() {
+class StringSLList {
     private:
         // head of the single linked-list is a node
         StringSLListNode* pHead;
@@ -18,24 +19,15 @@ class StringSLList() {
         // constructor
         StringSLList() {
             pHead = nullptr;
+            std::cout << "String Linked List Created." << std::endl;
         }
-    virtual ~StringSLList() {
-        delete pHead;
-    }
-    // simply check if the head pointer it null
-    bool isEmpty() {
-        if (pHead == nullptr) {
-            return true;
+        virtual ~StringSLList() {
+            delete pHead;
         }
-        else return false;
-    }
-    void addToHead(string);
-    void addToTail(string);
-    string deleteFromHead();    // delete head, return data
-    string deleteFromTail();    // delete tail, return data
-    void printAll() const;
-    void bubbleSort();          // sorts list in alphabetical order
-    bool search(string el);     // seaches for work
+        void addToHead(string);
+        void printAll() const;
+        // sorts list in alphabetical order
+        void bubbleSort();
 };
 
 #endif /* STRINGSSLIST_H_ */

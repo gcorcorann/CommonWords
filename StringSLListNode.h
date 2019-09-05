@@ -8,7 +8,7 @@
 #define STRINGSLLISTNODE_H_
 
 #include <string>
-using namespace std
+using namespace std;
 
 
 class StringSLListNode {

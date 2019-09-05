@@ -40,12 +40,35 @@ int main() {
             cout << "Storing: " << word << "." << endl;
             // convert first letter of word to int ('a' -> 0)
             int index = int(word[0]) - 97;
-            cout << "index: " << index << endl;
-            alphabet[index]->addToHea(word);
+            // only store characters
+            if (index >= 0 && index < 26) {
+                cout << "index: " << index << endl;
+                // add to linked list
+                alphabet[index]->addToHead(word);
+            }
         }
         myfile.close();
+
+        // print linked list contents
+        for (int i = 0; i < 26; i++) {
+            alphabet[i]->printAll();
+        }
     }
-    else cout << "Unable to open file." << endl;
+    else {
+        cout << "Unable to open file." << endl;
+        return 0;
+    }
+    // ask to sort lists
+    cout << "Do you want to sort the lists? (Enter 'yes' if so)" << endl;
+    string userInput;
+    cin >> userInput;
+    if (userInput[0] == 'y') {
+        cout << endl << "Sorted List." << endl;
+        for (int i = 0; i < 26; i ++) {
+            alphabet[i]->bubbleSort();
+            alphabet[i]->printAll();
+        }
+    }
 
     cout << "Program finished... deleting linked list." << endl;
     for (int i = 0; i < 26; i++) {
